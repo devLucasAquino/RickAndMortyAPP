@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { api } from "../../lib/axios";
+import { Card } from "./card";
+import { ListContainer } from "./styles";
 
 interface MainProps {
     search: string | null;
@@ -55,15 +57,23 @@ export function Main({
     }, [])
 
     return(
-        <View>
-            <Text>{search}</Text>
-            {characters.length > 0 ? (
-                characters.map((character: Characters) => (
-                    <Text key={character.id}>{character.name}</Text>
-                ))
-            ) : (
-                <Text>Nenhum personagem encontrado</Text>
-            )}
-        </View>
+        <ScrollView>
+            <ListContainer>
+                {characters.length > 0 ? (
+                    characters.map((character: Characters) => (
+                        <Card 
+                            key={character.id}
+                            id={character.id}
+                            name={character.name}
+                            gender={character.gender}
+                            status={character.status}
+                            image={character.image}
+                        />
+                    ))
+                ) : (
+                    <Text>Nenhum personagem encontrado</Text>
+                )}
+            </ListContainer>
+        </ScrollView>
     )
 };
