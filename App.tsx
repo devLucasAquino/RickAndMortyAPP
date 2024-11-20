@@ -1,8 +1,8 @@
 import React from "react";
-import { Home } from "./src/pages/home";
+import { Header } from "./src/components/header";
 
 export function App(): React.JSX.Element {
   return(
-      <Home />
+      <Header />
   )
 };
