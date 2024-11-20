@@ -6,7 +6,7 @@ export const HeaderContainer = styled.View`
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #5ccb5f;
 `;
 
