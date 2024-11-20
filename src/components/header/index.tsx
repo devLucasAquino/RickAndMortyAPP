@@ -1,12 +1,25 @@
 import React from "react";
-import { HeaderContainer, HeaderText } from "./styles";
-import { SearchButton } from "../search-button/search-button";
+import { Button, HeaderContainer, HeaderText, SearchButtonContainer, SearchButtonInput, TextButton } from "./styles";
+import { TouchableOpacity } from "react-native";
 
-export function Header(): React.JSX.Element {
+interface HeaderProps {
+    setSearch: (search: string) => void;
+};
+
+export function Header({
+    setSearch,
+}: HeaderProps): React.JSX.Element {
     return(
         <HeaderContainer>
             <HeaderText>Rick and Morty</HeaderText>
-            <SearchButton />
+            <SearchButtonContainer>
+            <SearchButtonInput onChangeText={setSearch}/>
+            <TouchableOpacity>
+                <Button>
+                    <TextButton>Search</TextButton>
+                </Button>
+            </TouchableOpacity>
+        </SearchButtonContainer>
         </HeaderContainer>
     )
 };
