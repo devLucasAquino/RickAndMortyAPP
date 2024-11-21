@@ -2,7 +2,7 @@ import React from "react";
 import { Button, HeaderContainer, HeaderText, SearchButtonContainer, SearchButtonInput, TextButton } from "./styles";
 import { TouchableOpacity } from "react-native";
 
-interface HeaderProps {
+export interface HeaderProps {
     setSearch: (search: string) => void;
 };
 
