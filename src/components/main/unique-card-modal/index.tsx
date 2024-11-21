@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import { ButtonClose, UniqueCardContainer, UniqueCardContent, UniqueCardHeader, UniqueCardImage, UniqueCardInfo, UniqueCardName } from "./styles";
+import { Text, TouchableOpacity } from "react-native";
+import { ButtonClose, UniqueCardContainer, UniqueCardContent, UniqueCardImage, UniqueCardInfo, UniqueCardName } from "./styles";
 import { Characters } from "..";
 
 interface UniqueCardProps extends Characters {
