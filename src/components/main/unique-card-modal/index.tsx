@@ -4,7 +4,7 @@ import { UniqueCardContainer } from "./styles";
 import { Characters } from "..";
 
 interface UniqueCardProps extends Characters {
-    onClose: () => void; // Nova prop para fechar o modal.
+    onClose: () => void;
 }
 
 export function UniqueCard({

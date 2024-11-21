@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text } from "react-native";
 import { api } from "../../lib/axios";
 import { Card } from "./card";
 import { ListContainer } from "./styles";
 
-interface MainProps {
-    search: string | null;
-};
-
-type Characters = {
+export type Characters = {
     id: number;
     name: string;
     status: string;
@@ -24,9 +20,7 @@ type Characters = {
     image: string;
 };
 
-export function Main({
-    search,
-}: MainProps): React.JSX.Element {
+export function Main(): React.JSX.Element {
 
     const [ characters, setCharacters ] = useState<Characters[]>([]);
 
@@ -57,23 +51,30 @@ export function Main({
     }, [])
 
     return(
-        <ScrollView>
-            <ListContainer>
-                {characters.length > 0 ? (
-                    characters.map((character: Characters) => (
-                        <Card 
-                            key={character.id}
-                            id={character.id}
-                            name={character.name}
-                            gender={character.gender}
-                            status={character.status}
-                            image={character.image}
-                        />
-                    ))
-                ) : (
-                    <Text>Nenhum personagem encontrado</Text>
-                )}
-            </ListContainer>
-        </ScrollView>
+        <>
+            <ScrollView>
+                <ListContainer>
+                    {characters.length > 0 ? (
+                        characters.map((character: Characters) => (
+                            <Card 
+                                key={character.id}
+                                id={character.id}
+                                name={character.name}
+                                gender={character.gender}
+                                status={character.status}
+                                image={character.image}
+                                location={character.location}
+                                origin={character.origin}
+                                species={character.species}
+                                type={character.type}
+                            />
+                        ))
+                    ) : (
+                        <Text>Nenhum personagem encontrado</Text>
+                    )}
+                </ListContainer>
+            </ScrollView>
+            
+        </>
     )
 };
